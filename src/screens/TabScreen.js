@@ -5,7 +5,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
 
-const TabOne = () => {
+const TabOne = (props) => {
+  console.log("TabOne props", props);
   return (
     <View style={styles.mainView}>
       <Text>Tab One</Text>
@@ -29,7 +30,8 @@ const TabThree = () => {
   );
 };
 
-const TabScreen = ({ navigation }) => {
+const TabScreen = ({ navigation, route }) => {
+  const character = route.params;
   return (
     <Tab.Navigator
       screenOptions={{
@@ -37,9 +39,9 @@ const TabScreen = ({ navigation }) => {
         tabBarInactiveTintColor: "gray",
       }}
     >
-      <Tab.Screen name="Tab One" component={TabOne} />
-      <Tab.Screen name="Tab Two" component={TabTwo} />
-      <Tab.Screen name="Tab Three" component={TabThree} />
+      <Tab.Screen name="Background" component={TabOne} />
+      <Tab.Screen name="Stats" component={TabTwo} />
+      <Tab.Screen name="Actions" component={TabThree} />
     </Tab.Navigator>
   );
 };

@@ -16,39 +16,24 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="App_to_Home"
+        initialRouteName="CharactersList"
         screenOptions={{
           headerTintColor: "white",
           headerStyle: { backgroundColor: "tomato" },
         }}
       >
         <Stack.Screen
-          name="App_to_Home"
+          name="CharactersList"
           component={HomeScreen}
-          options={{ title: "Movies" }}
+          options={{ title: "Your Characters" }}
         />
         <Stack.Screen
-          name="Home_to_Details"
-          component={DetailsScreen}
+          name="CharacterTabs"
+          component={TabScreen}
           options={({ route }) => {
             console.log({ route });
-            return { title: route.params.item.title };
+            return { title: route.params.name };
           }}
-        />
-        <Stack.Screen
-          name="Details_to_Details"
-          component={DetailsScreen}
-          options={{ title: "More Details" }}
-        />
-        <Stack.Screen
-          name="BigImageView"
-          component={ImageScreen}
-          options={{ title: "Image" }}
-        />
-        <Stack.Screen
-          name="TabScreen"
-          component={TabScreen}
-          options={{ title: "Tabs" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

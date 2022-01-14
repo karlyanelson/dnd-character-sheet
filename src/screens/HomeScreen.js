@@ -9,58 +9,44 @@ import {
 } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
-  const movies = [
+  const characters = [
     {
-      title: "Star Wars",
-      release: 1977,
-      screenNumber: 1,
+      name: "Character 1",
+      id: 1,
     },
     {
-      title: "Black Panther",
-      release: 2018,
-      screenNumber: 1,
+      name: "Character 2",
+      id: 2,
     },
     {
-      title: "The Matrix",
-      release: 1999,
-      screenNumber: 1,
+      name: "Character 3",
+      id: 3,
     },
   ];
 
   const renderItem = ({ item }) => {
     return (
-      <Button
-        title={item.title}
-        color="tomato"
-        onPress={() => {
-          navigation.navigate("Home_to_Details", {
-            item,
-          });
-        }}
-      />
+      <View style={{ marginVertical: 24 }}>
+        <TouchableOpacity
+          style={styles.touchable}
+          onPress={() => {
+            navigation.navigate("CharacterTabs", item);
+          }}
+        >
+          <View>
+            <Text style={styles.touchableText}>{item.name}</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     );
   };
 
   return (
     <View style={styles.mainView}>
-      <View style={{ marginVertical: 24 }}>
-        <Text>Other Navigation</Text>
-        <TouchableOpacity
-          style={styles.touchable}
-          onPress={() => {
-            navigation.navigate("TabScreen");
-          }}
-        >
-          <View>
-            <Text style={styles.touchableText}>Go to Tabs</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-      <Text>Home Screen</Text>
       <FlatList
-        data={movies}
+        data={characters}
         renderItem={renderItem}
-        keyExtractor={(item) => item.title}
+        keyExtractor={(item) => item.id}
       />
     </View>
   );
