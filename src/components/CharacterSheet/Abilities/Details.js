@@ -1,16 +1,7 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  KeyboardAvoidingView,
-  ScrollView,
-  SafeAreaView,
-  Platform,
-} from "react-native";
+import { View, Text, TextInput, StyleSheet, Platform } from "react-native";
 
-import { HeaderHeightContext } from "@react-navigation/elements";
+import KeyboardAvoidingViewWrapper from "../../../common/KeyboardAvoidingViewWrapper";
 
 const AccessibleInput = ({ label, value, onChangeText, ...props }) => {
   const [borderColor, setBorderColor] = useState("gray");
@@ -56,82 +47,33 @@ const Details = ({ navigation, route }) => {
   const [total, setTotal] = useState(`${ability.total}`);
 
   return (
-    <HeaderHeightContext.Consumer>
-      {(headerHeight) => (
-        <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "padding" : "height"}
-          contentContainerStyle={{ flex: 1 }}
-          keyboardVerticalOffset={headerHeight}
-        >
-          <ScrollView>
-            <View style={{ padding: 24, paddingBottom: 48 }}>
-              <AccessibleInput label="Key" value={key} onChangeText={setKey} />
-              <AccessibleInput
-                label="Title"
-                value={title}
-                onChangeText={setTitle}
-              />
-              <AccessibleInput
-                label="Title"
-                value={title}
-                onChangeText={setTitle}
-              />
-              <AccessibleInput
-                label="Title"
-                value={title}
-                onChangeText={setTitle}
-              />
-              <AccessibleInput
-                label="Title"
-                value={title}
-                onChangeText={setTitle}
-              />
-              <AccessibleInput
-                label="Title"
-                value={title}
-                onChangeText={setTitle}
-              />
-              <AccessibleInput
-                label="Title"
-                value={title}
-                onChangeText={setTitle}
-              />
-              <AccessibleInput
-                label="Title"
-                value={title}
-                onChangeText={setTitle}
-              />
-              <AccessibleInput
-                label="Title"
-                value={title}
-                onChangeText={setTitle}
-              />
-              <AccessibleInput
-                label="Title"
-                value={title}
-                onChangeText={setTitle}
-              />
-              <AccessibleInput
-                label="Title"
-                value={title}
-                onChangeText={setTitle}
-              />
-              <AccessibleInput
-                label="Modifier"
-                value={modifier}
-                onChangeText={setModifier}
-              />
-              <AccessibleInput
-                label="Total"
-                value={total}
-                onChangeText={setTotal}
-                keyboardType="numbers-and-punctuation"
-              />
-            </View>
-          </ScrollView>
-        </KeyboardAvoidingView>
-      )}
-    </HeaderHeightContext.Consumer>
+    <KeyboardAvoidingViewWrapper>
+      <AccessibleInput label="Key" value={key} onChangeText={setKey} />
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
+      <AccessibleInput
+        label="Modifier"
+        value={modifier}
+        onChangeText={setModifier}
+        keyboardType={
+          Platform.OS === "ios" ? "numbers-and-punctuation" : "default"
+        }
+      />
+      <AccessibleInput
+        label="Total"
+        value={total}
+        onChangeText={setTotal}
+        keyboardType="number-pad"
+      />
+    </KeyboardAvoidingViewWrapper>
   );
 };
 

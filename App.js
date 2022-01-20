@@ -5,7 +5,7 @@ import { StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import CharacterList from "./src/screens/CharacterList";
+import CharacterList from "./src/components/CharacterList";
 import CharacterSheet from "./src/components/CharacterSheet/CharacterSheet";
 import Abilities from "./src/components/CharacterSheet/Abilities/Abilities";
 import AbilitiesDetails from "./src/components/CharacterSheet/Abilities/Details";
