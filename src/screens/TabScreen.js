@@ -5,33 +5,33 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
 
-const TabOne = (props) => {
-  console.log("TabOne props", props);
-  return (
-    <View style={styles.mainView}>
-      <Text>Tab One</Text>
-    </View>
-  );
-};
-
-const TabTwo = () => {
-  return (
-    <View style={styles.mainView}>
-      <Text>Tab Two</Text>
-    </View>
-  );
-};
-
-const TabThree = () => {
-  return (
-    <View style={styles.mainView}>
-      <Text>Tab Three</Text>
-    </View>
-  );
-};
-
 const TabScreen = ({ navigation, route }) => {
   const character = route.params;
+
+  const TabOne = (props) => {
+    console.log("TabOne props", props);
+    return (
+      <View style={styles.mainView}>
+        <Text>Tab One {character.name}</Text>
+      </View>
+    );
+  };
+
+  const TabTwo = () => {
+    return (
+      <View style={styles.mainView}>
+        <Text>Tab Two</Text>
+      </View>
+    );
+  };
+
+  const TabThree = () => {
+    return (
+      <View style={styles.mainView}>
+        <Text>Tab Three</Text>
+      </View>
+    );
+  };
   return (
     <Tab.Navigator
       screenOptions={{

@@ -1,15 +1,17 @@
 import React from "react";
 import { Button, View, Text, StyleSheet } from "react-native";
 
-const ImageScreen = ({ navigation }) => {
+const CharacterSheet = ({ navigation, route }) => {
+  const character = route.params;
+
   return (
-    <View style={styles.mainView}>
-      <Text>Image Screen</Text>
+    <View>
+      <Text>{character.name}</Text>
 
       <Button
-        title="Go Home"
+        title="Abilities"
         onPress={() => {
-          navigation.popToTop();
+          navigation.navigate("CharacterSheet_Abilities", character);
         }}
       />
     </View>
@@ -24,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ImageScreen;
+export default CharacterSheet;

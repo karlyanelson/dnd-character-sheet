@@ -1,14 +1,14 @@
 // import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import HomeScreen from "./src/screens/HomeScreen";
-import DetailsScreen from "./src/screens/DetailsScreen";
-import ImageScreen from "./src/screens/ImageScreen";
-import TabScreen from "./src/screens/TabScreen";
+import CharacterList from "./src/screens/CharacterList";
+import CharacterSheet from "./src/screens/CharacterSheet/CharacterSheet";
+import Abilities from "./src/screens/CharacterSheet/Abilities/Abilities";
+import AbilitiesDetails from "./src/screens/CharacterSheet/Abilities/Details";
 
 const Stack = createStackNavigator();
 
@@ -16,23 +16,34 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="CharactersList"
+        initialRouteName="CharacterList"
         screenOptions={{
           headerTintColor: "white",
           headerStyle: { backgroundColor: "tomato" },
         }}
       >
         <Stack.Screen
-          name="CharactersList"
-          component={HomeScreen}
-          options={{ title: "Your Characters" }}
+          name="CharacterList"
+          component={CharacterList}
+          options={{ title: "Characters" }}
         />
         <Stack.Screen
-          name="CharacterTabs"
-          component={TabScreen}
+          name="CharacterSheetHome"
+          component={CharacterSheet}
           options={({ route }) => {
-            console.log({ route });
             return { title: route.params.name };
+          }}
+        />
+        <Stack.Screen
+          name="CharacterSheet_Abilities"
+          component={Abilities}
+          options={{ title: "Abilities" }}
+        />
+        <Stack.Screen
+          name="CharacterSheet_Abilities_Details"
+          component={AbilitiesDetails}
+          options={({ route }) => {
+            return { title: route.params.title };
           }}
         />
       </Stack.Navigator>
