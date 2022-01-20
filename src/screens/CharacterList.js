@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 const CharacterList = ({ navigation }) => {
-  const sampleAbilities = [
+  const abilities = [
     {
       title: "Dexterity",
       key: "DEX",
@@ -33,17 +33,17 @@ const CharacterList = ({ navigation }) => {
     {
       name: "Arthur Pendragon",
       id: 1,
-      abilities: sampleAbilities,
+      abilities,
     },
     {
       name: "Merlin",
       id: 2,
-      abilities: sampleAbilities,
+      abilities,
     },
     {
       name: "al'Lan Mandragoran Lord of the Seven Towers, Lord of the Lakes, True Blade of Malkier, Defender of the Wall of First Fires, Bearer of the Sword of the Thousand Lakes",
       id: 3,
-      abilities: sampleAbilities,
+      abilities,
     },
   ];
 
@@ -51,6 +51,8 @@ const CharacterList = ({ navigation }) => {
     return (
       <View>
         <TouchableOpacity
+          accessible={true}
+          accessibilityLabel={item.name}
           style={styles.touchable}
           onPress={() => {
             navigation.navigate("CharacterSheetHome", item);
