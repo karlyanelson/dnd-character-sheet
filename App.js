@@ -6,9 +6,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import CharacterList from "./src/screens/CharacterList";
-import CharacterSheet from "./src/screens/CharacterSheet/CharacterSheet";
-import Abilities from "./src/screens/CharacterSheet/Abilities/Abilities";
-import AbilitiesDetails from "./src/screens/CharacterSheet/Abilities/Details";
+import CharacterSheet from "./src/components/CharacterSheet/CharacterSheet";
+import Abilities from "./src/components/CharacterSheet/Abilities/Abilities";
+import AbilitiesDetails from "./src/components/CharacterSheet/Abilities/Details";
 
 const Stack = createStackNavigator();
 
