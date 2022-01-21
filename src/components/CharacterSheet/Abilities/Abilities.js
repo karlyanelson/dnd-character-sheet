@@ -23,7 +23,7 @@ const Abilities = ({ navigation, route }) => {
       <FlatList
         data={character.abilities}
         renderItem={renderItem}
-        keyExtractor={(item) => item.key}
+        keyExtractor={(item) => item.id}
       />
     </View>
   );

@@ -8,41 +8,46 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import { v4 as uuid } from "uuid";
+
 const CharacterList = ({ navigation }) => {
   const abilities = [
     {
+      id: uuid(),
       title: "Dexterity",
       key: "DEX",
       total: 18,
-      modifier: 3,
+      modifier: "+3",
     },
     {
+      id: uuid(),
       title: "Constitution",
       key: "CON",
       total: 18,
-      modifier: 3,
+      modifier: "+3",
     },
     {
+      id: uuid(),
       title: "Wisdom",
       key: "WIS",
       total: 18,
-      modifier: 3,
+      modifier: "+3",
     },
   ];
   const characters = [
     {
       name: "Arthur Pendragon",
-      id: 1,
+      id: uuid(),
       abilities,
     },
     {
       name: "Merlin",
-      id: 2,
+      id: uuid(),
       abilities,
     },
     {
       name: "al'Lan Mandragoran Lord of the Seven Towers, Lord of the Lakes, True Blade of Malkier, Defender of the Wall of First Fires, Bearer of the Sword of the Thousand Lakes",
-      id: 3,
+      id: uuid(),
       abilities,
     },
   ];

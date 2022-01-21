@@ -48,7 +48,9 @@ const Details = ({ navigation, route }) => {
 
   return (
     <KeyboardAvoidingViewWrapper>
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
       <AccessibleInput label="Key" value={key} onChangeText={setKey} />
+      {/* <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
       <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
       <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
       <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
@@ -56,9 +58,7 @@ const Details = ({ navigation, route }) => {
       <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
       <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
       <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
+      <AccessibleInput label="Title" value={title} onChangeText={setTitle} /> */}
       <AccessibleInput
         label="Modifier"
         value={modifier}
