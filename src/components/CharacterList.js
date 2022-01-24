@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import "react-native-get-random-values";
 import { v4 as uuid } from "uuid";
 
 const CharacterList = ({ navigation }) => {
@@ -58,6 +59,7 @@ const CharacterList = ({ navigation }) => {
         <TouchableOpacity
           accessible={true}
           accessibilityLabel={item.name}
+          accessibilityRole="button"
           style={styles.touchable}
           onPress={() => {
             navigation.navigate("CharacterSheetHome", item);

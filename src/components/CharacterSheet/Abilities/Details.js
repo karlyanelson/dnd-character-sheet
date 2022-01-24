@@ -1,44 +1,10 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, Platform } from "react-native";
+import { Platform } from "react-native";
 
 import KeyboardAvoidingViewWrapper from "../../../common/KeyboardAvoidingViewWrapper";
+import InputWithLabel from "../../../common/InputWithLabel";
 
-const AccessibleInput = ({ label, value, onChangeText, ...props }) => {
-  const [borderColor, setBorderColor] = useState("gray");
-
-  const styles = StyleSheet.create({
-    container: {
-      marginVertical: 8,
-    },
-    input: {
-      borderWidth: 2,
-      padding: 16,
-      borderRadius: 8,
-      borderColor,
-      marginBottom: 16,
-    },
-  });
-
-  return (
-    <View accessible={true} accessibilityLabel={label} style={styles.container}>
-      <Text>{label}</Text>
-      <TextInput
-        value={value}
-        style={styles.input}
-        onChangeText={onChangeText}
-        onFocus={() => {
-          setBorderColor("blue");
-        }}
-        onBlur={() => {
-          setBorderColor("gray");
-        }}
-        {...props}
-      />
-    </View>
-  );
-};
-
-const Details = ({ navigation, route }) => {
+const Details = ({ route }) => {
   const ability = route.params;
 
   const [key, setKey] = useState(ability.key);
@@ -48,18 +14,9 @@ const Details = ({ navigation, route }) => {
 
   return (
     <KeyboardAvoidingViewWrapper>
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Key" value={key} onChangeText={setKey} />
-      {/* <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} />
-      <AccessibleInput label="Title" value={title} onChangeText={setTitle} /> */}
-      <AccessibleInput
+      <InputWithLabel label="Title" value={title} onChangeText={setTitle} />
+      <InputWithLabel label="Key" value={key} onChangeText={setKey} />
+      <InputWithLabel
         label="Modifier"
         value={modifier}
         onChangeText={setModifier}
@@ -67,7 +24,7 @@ const Details = ({ navigation, route }) => {
           Platform.OS === "ios" ? "numbers-and-punctuation" : "default"
         }
       />
-      <AccessibleInput
+      <InputWithLabel
         label="Total"
         value={total}
         onChangeText={setTotal}
