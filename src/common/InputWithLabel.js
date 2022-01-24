@@ -19,10 +19,11 @@ const InputWithLabel = ({ label, value, onChangeText, ...props }) => {
   });
 
   return (
-    // <View accessible={true} accessibilityLabel={label} style={styles.container}>
     <View style={styles.container}>
-      <Text>{label}</Text>
+      <Text accessible={false}>{label}</Text>
       <TextInput
+        accessible={true}
+        accessibilityLabel={label}
         value={value}
         style={styles.input}
         onChangeText={onChangeText}
