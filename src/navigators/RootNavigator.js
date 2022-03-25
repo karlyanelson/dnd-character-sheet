@@ -30,6 +30,15 @@ const RootNavigator = () => {
           return { title: route.params.name };
         }}
       />
+
+<Stack.Screen
+        name="TraitScreen"
+        component={Trait}
+        options={({ route }) => {
+          return { title: route.params.title, traitType: undefined };
+        }}
+      />
+
       <Stack.Screen
         name="CharacterSheet_Abilities"
         component={Abilities}

@@ -18,11 +18,13 @@ const InputWithLabel = ({ label, value, onChangeText, ...props }) => {
     },
   });
 
+  // <Text accessible=false -> only works on ios for Text, android will still announce Text
+  // <Text importantForAccessibility={"no"} -> only works on Android to hide Text, TextInput announces accessibilityLabel when no value, but doesn't announce accessibilityLabel when there is a value
+
   return (
     <View style={styles.container}>
       <Text accessible={false}>{label}</Text>
       <TextInput
-        accessible={true}
         accessibilityLabel={label}
         value={value}
         style={styles.input}
